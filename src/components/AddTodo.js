@@ -15,6 +15,9 @@ class AddTodo extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     this.props.addTodo(this.state)
+    this.setState({
+      title:''
+    })
   }
 
   render() {
