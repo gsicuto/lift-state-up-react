@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import {v4 as uuidv4} from 'uuid'
-import TodoItem from "./TodoItem";
-import Header from "../layout/Header";
+
+import Header from './Header'
 import AddTodo from './AddTodo'
+import TodoItem from "./TodoItem";
+
 
 export default class TodoList extends Component {
   state = {
@@ -58,18 +60,20 @@ export default class TodoList extends Component {
 
   render() {
     return (
-      <div className="container">
-        <Header />
-        <AddTodo addTodo={this.addTodo} />
-        {this.state.todos.map((todo) => (
-          <TodoItem
-            key={todo.id}
-            markComplete={() => this.markComplete(todo.id)}
-            delete={() => this.deleteTask(todo.id)}
-            {...todo}
-          />
-        ))}
-      </div>
+      <>
+      <Header>Todo List</Header>
+        <div className="container">
+          <AddTodo addTodo={this.addTodo} />
+          {this.state.todos.map((todo) => (
+            <TodoItem
+              key={todo.id}
+              markComplete={() => this.markComplete(todo.id)}
+              delete={() => this.deleteTask(todo.id)}
+              {...todo}
+            />
+          ))}
+        </div>
+        </>
     );
   }
 }

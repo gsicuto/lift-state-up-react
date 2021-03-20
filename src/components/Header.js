@@ -1,18 +1,18 @@
 import React from "react";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header style={headerStyle}>
-      <h1>Todo List</h1>
+      <h3>{props.children}</h3>
     </header>
   );
 };
 
 const headerStyle = {
-  background: "#333",
+  background: "#337",
   color: "#fff",
   textAlign: "center",
-  padding: "10px",
+  padding: "10px"
 };
 
 export default Header;
