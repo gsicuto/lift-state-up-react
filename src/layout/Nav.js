@@ -1,14 +1,31 @@
 import React from "react";
+import { NavLink } from "react-router-dom"
 
-const Nav = () => {
+const Nav = (props) => {
   return (
+    
     <header style={headerStyle}>
       <ul style={{display:"flex", justifyContent: "space-around"}}>
-        <li><a className= 'nav-link' href= '/'>Home</a></li>
-        <li> <a className= 'nav-link'  href= '/todos'>Todo List</a></li>
-        <li><a className= 'nav-link' href= '/about'>About</a></li>
+        <li><NavLink exact activeStyle={{color:'green'}} className= 'nav-link' to= '/'>Home</NavLink></li>
+        {props.user ? (
+        <>
+          <li> <NavLink activeStyle={{color:'green'}} className= 'nav-link'  to= '/todos'>Todo List</NavLink></li>
+          <li><NavLink activeStyle={{color:'green'}} className=  'nav-link' to= '/about'>About</NavLink>
+          </li>
+          <li><NavLink activeStyle={{color:'green'}} className=  'nav-link' to= '/logout'>Logout</NavLink>
+          </li>
+          </>
+        ) : (
+          <>
+          <li> <NavLink activeStyle={{color:'green'}} className= 'nav-link'  to= '/login'>Login</NavLink></li>
+          <li><NavLink activeStyle={{color:'green'}} className=  'nav-link' to= '/signup'>Signup</NavLink>
+          </li>
+          </>
+        )
+         }
+        
       </ul>
-    </header>
+    </header> 
   );
 };
 

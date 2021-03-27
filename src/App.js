@@ -11,11 +11,17 @@ import Header from './components/Header';
 
 
 export default class App extends Component {
+
+  constructor(props){
+    super(props)
+    this.state = {
+      user: 'usuário'
+    }
+  }
   render() {
     return (
       <div>
-        <Header>Meu App</Header>
-        <Nav/>
+        <Nav user={this.state.user}/>
 
         <Switch>
           <Route path='/' exact component={Home}/>

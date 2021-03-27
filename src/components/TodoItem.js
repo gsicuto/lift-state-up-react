@@ -11,6 +11,7 @@ export class TodoItem extends Component {
   };
 
   render() {
+
     return (
       <div style={this.getStyle()}>
         <input
