@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 
 import './App.css';
 
 import Nav from './layout/Nav'
-import TodoList from './components/TodoList'
-import Home from './components/Home'
-import About from './components/About'
-import Header from './components/Header';
+import TodoList from './TodoList'
+import Home from './Home'
+import About from './About'
+import Login from './Login';
 
 
 export default class App extends Component {
@@ -15,18 +15,28 @@ export default class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      user: 'usuário'
+      isUserAuthenticated: false
     }
   }
+
+  changeAuthUser = (value) => {
+    this.setState({
+      isUserAuthenticated: value,
+    })
+  }
+
   render() {
     return (
       <div>
-        <Nav user={this.state.user}/>
+        <Nav user= {this.state.isUserAuthenticated} />
 
         <Switch>
+
           <Route path='/' exact component={Home}/>
 
-          <Route path='/todos' component={TodoList}/>
+          <Route path='/login'  render={(props) => <Login {...props} changeAuthUser= {this.changeAuthUser} /> }  />
+
+          {this.state.isUserAuthenticated? <Route path='/todos' component={TodoList}/> : <Redirect to='/' /> }
 
           <Route path='/about' component={About}/>
 

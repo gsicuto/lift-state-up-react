@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import {v4 as uuidv4} from 'uuid'
 
-import Header from './Header'
-import AddTodo from './AddTodo'
-import TodoItem from "./TodoItem";
-import apiUtils from '../utils/api.utils'
+import Header from './components/Header'
+import AddTodo from './components/AddTodo'
+import TodoItem from "./components/TodoItem";
+import apiUtils from './utils/api.utils'
 
 export default class TodoList extends Component {
 

@@ -20,10 +20,6 @@ class AddTodo extends Component {
     })
   }
 
-  componentDidMount() {
-    console.log('Estou no Did Mount do AddTodo')
-  }
-
 
   render() {
     return (
